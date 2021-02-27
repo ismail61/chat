@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="stylesheet"
+    href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.css">
+  <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+  <link href="/css/app.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+  <style>
+    .btn{
+      background-color: #FE5F1E;
+      
+    }
+    .btn:hover{
+      background-color: #b23301;
+    }
+  </style>
+  <title>Chat System</title>
+</head>
+
+<body>
+
+
+  <div
+    class="h-45 left-0 top-0 right-0 z-40 top w-full text-gray-700 bg-white dark-mode:text-gray-200 dark-mode:bg-gray-800">
+    <div x-data="{ open: false }"
+      class="flex flex-col max-w-screen-xl px-4 mx-auto md:items-center md:justify-between md:flex-row md:px-6 lg:px-8">
+      <div class="p-4 flex flex-row items-center justify-between">
+        <a href="/"
+          class="text-lg font-semibold tracking-widest text-gray-900 uppercase rounded-lg dark-mode:text-white focus:outline-none focus:shadow-outline">
+          Chat System
+        </a>
+        <button class="md:hidden rounded-lg focus:outline-none focus:shadow-outline" @click="open = !open">
+          <svg fill="currentColor" viewBox="0 0 20 20" class="w-6 h-6">
+            <path x-show="!open" fill-rule="evenodd"
+              d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM9 15a1 1 0 011-1h6a1 1 0 110 2h-6a1 1 0 01-1-1z"
+              clip-rule="evenodd"></path>
+            <path x-show="open" fill-rule="evenodd"
+              d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+              clip-rule="evenodd"></path>
+          </svg>
+        </button>
+      </div>
+      <nav :class="{'flex': open, 'hidden': !open}"
+        class="flex-col flex-grow pb-4 md:pb-0 hidden md:flex md:justify-end md:flex-row">
+        <a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-full dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
+          href="/login">Login
+        </a>
+
+        <a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-full dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
+          href="/logout">Logout
+        </a>
+
+        <a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-full dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
+          href="#">Contact
+        </a>
+        <a href="http://" class="ml-2"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+            stroke="currentColor" height="35px" width="30px" class="mt-1">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
+          </svg>
+        </a>
+
+        <a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-full dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
+          href="/register">Register
+        </a>
+      </nav>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js" charset="utf-8"></script>
+    <script>
+      function openDropdown(event, dropdownID) {
+        let element = event.target;
+        while (element.nodeName !== "BUTTON") {
+          element = element.parentNode;
+        }
+        var popper = new Popper(element, document.getElementById(dropdownID), {
+          placement: 'bottom-start'
+        });
+        document.getElementById(dropdownID).classList.toggle("hidden");
+        document.getElementById(dropdownID).classList.toggle("block");
+
+      }
+
+    </script>
+  </div>
+
+  <%- body %>
+    <!-- <footer class="pt-5">
+
+      <div class="bg-gray-800 text-white py-3 px-4 text-center  left-0 bottom-0 right-0 z-40">
+        © <%= new Date().getFullYear() %> Food Treat | All Rights Reserved
+
+      </div>
+    </footer> -->
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/js/app.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.js"></script>
+</body>
+
+</html>
