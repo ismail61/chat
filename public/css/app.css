@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+
+}
+
+.message-area{
+    height: 450px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding-top: 40px;
+    background: #FBFBFB;
+}
+
+.message-send input{
+    width: 100%;
+    border: 1px solid red;
+    padding: 10px;
+    font-size: 16px;
+    outline: none;
+    background: #FBFBFB;
+}
+
+.message {
+    padding: 10px; 
+    border-radius: 20px; 
+    margin-bottom: 40px;
+    max-width: 300px;
+    position: relative;
+}
+.incoming {
+    background: #40df55;
+    color: #fff;  
+}
+.outgoing {
+    background: #3a3e86;
+    
+    color: #edeef8;
+    margin-left: auto;
+    width: 30%;
+}
+.message h4 {
+    position: absolute;
+    top: -24px;
+    right: 2px;
+    left: 0;
+    color: rgb(1, 1, 14);
+    font-size: 15px;
+    
+}

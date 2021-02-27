@@ -15,8 +15,10 @@ const userSchema = new Schema({
         type : String,
         require : true.valueOf,
         minlength: 2,
-        maxlength: 20
+        maxlength: 300
     },
+},{
+    timestamps : true
 })
 
 module.exports = model('User',userSchema)

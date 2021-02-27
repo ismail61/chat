@@ -1,6 +1,7 @@
 const User = require('../models/user')
 const bcrypt  = require('bcrypt')
 const validator = require('validator')
+const passport = require('passport')
 function authController(){
     return {
         login(req,res){
@@ -64,6 +65,7 @@ function authController(){
             user.save().then((user)=>{
                 return res.redirect('/login')
             }).catch((err)=>{
+                //console.log(err)
                 req.flash(
                     'error' , 'Something went wrong'
                 )
@@ -71,6 +73,32 @@ function authController(){
                 req.flash('email',email)
                 return res.redirect('/register')
             })
+        },
+        loginUser(req,res,next){
+            passport.authenticate('local',(err,user,info)=>{
+                if(err){
+                    req.flash('error',info.message)
+                    return next(err)
+                }
+                if(!user){
+                    req.flash('error',info.message)
+                    return res.redirect('/login')
+                }
+                req.logIn(user,(err)=>{
+                    if(err){
+                        req.flash('error',info.message)
+                        return next(err)
+                    }
+                    res.redirect('/')
+                    
+                })
+            })(req,res,next)
+        },
+        auth(req,res,next){
+            if(req.isAuthenticated()){
+                return next()
+            }
+            return res.redirect('/login')
         }
     }
 }
