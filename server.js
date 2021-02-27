@@ -22,6 +22,11 @@ const session_store = new MongoDbStore({
     collection : 'sessions',
   
   })
+
+  //middleware
+app.use(express.static("public"));
+app.use(express.json())
+app.use(express.urlencoded({ extended : true}))
 app.use(
     session({
         secret : 'ilove',
@@ -37,7 +42,8 @@ app.use(
 app.use(expressLayouts);
 app.set("views", path.join(__dirname, "resources/views"));
 app.set("view engine", "ejs");
-
+//middleware
+app.use(flash());
 require("./routes/routes")(app);
 
 const PORT = process.env.PORT || 5555;

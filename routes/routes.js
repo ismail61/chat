@@ -9,6 +9,7 @@ function routes(app) {
   app.get("/", homeController().home);
   app.get("/login", authController().login); 
   app.get("/register", authController().register); 
+  app.post("/register", authController().userRegister); 
 }
 
 module.exports = routes;
